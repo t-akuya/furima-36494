@@ -11,8 +11,6 @@
 | last_name          | string   | null: false                   |
 | first_name_kana    | string   | null: false                   |
 | last_name_kana     | string   | null: false                   |
-| first_name         | string   | null: false                   |
-| last_name          | string   | null: false                   |
 | birth_day          | date     | null: false                   |
 
 ### Association
@@ -34,9 +32,8 @@
 | shipment_days_id   | integer       | null: false                       |
 
 ### Association
--belongs_to :user
--belongs_to :address
--belongs_to :purchase
+- belongs_to :user
+- has_one :purchase
 
 ## addresses テーブル
 
@@ -63,5 +60,5 @@
 
 ## Association
 - belongs_to :user
-- has_many :item
+- belongs_to :item
 - has_one :address
