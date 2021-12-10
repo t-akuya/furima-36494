@@ -28,7 +28,7 @@
 | text               | text          | null: false                       |
 | user               | references    | null: false, foreign_key: true    |
 | delivery_fee_id    | integer       | null: false                       |
-| shipment_source_id | integer       | null: false                       |
+| prefecture_id      | integer       | null: false                       |
 | shipment_days_id   | integer       | null: false                       |
 
 ### Association
