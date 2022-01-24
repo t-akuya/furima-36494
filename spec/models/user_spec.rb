@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe User, type: :model do
   describe 'ユーザー管理機能' do
     it "nicknameが空だと登録できない" do
-      user = User.new(nickname: "")
+      user = User.new(nickname: " ")
       user.valid?
       expect(user.errors.full_messages).to include("Nickname can't be blank")
     end
