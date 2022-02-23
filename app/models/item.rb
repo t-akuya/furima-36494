@@ -10,13 +10,17 @@ class Item < ApplicationRecord
 
   with_options presence: true do
     validates :image
-    validates :name
-    validates :price, format:       { with: /\A[0-9]+\z/ },
-                      numericality: { in:300..9999999 }
-    validates :text
+    validates :name, length: {maximum: 40}
+    validates :price, numericality: {greater_than: 299,less_than: 10000000}, 
+                      format: { with: /\A[0-9]+\z/ }
+    validates :text, length: {maximum: 1000}
   end
 
-  validates :category_id, :condition_id, :delivery_id,
-            :prefecture_id, :shipment_days_id, numericality: { other_than: 1 , message: "can't be blank" }
-
+  with_options numericality: {other_than: 1, message: "can't be blank"} do
+    validates :category_id
+    validates :condition_id
+    validates :delivery_id
+    validates :prefecture_id
+    validates :shipment_days_id
+  end
 end
