@@ -1,5 +1,6 @@
 FactoryBot.define do
   factory :item do
+    association :user
     name                {'テストてすとtest'}
     text                {'テキストテストてきすとてすとtexttest'}
     category_id         {Faker::Number.between(from: 2, to: 11)}

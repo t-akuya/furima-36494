@@ -44,37 +44,37 @@ describe '商品出品機能' do
       expect(@item.errors.full_messages).to include("Text is too long (maximum is 1000 characters)")
     end
 
-    it "categoryが未選択では出品できない" do
-      @item.category_id = ''
+    it "カテゴリーに「---」が選択されている場合は出品できない" do
+      @item.category_id = 1
       @item.valid?
       expect(@item.errors.full_messages).to include("Category can't be blank")
     end
 
-    it "conditionが未選択では出品できない" do
-      @item.condition_id = ''
+    it "商品の状態に「---」が選択されている場合は出品できない" do
+      @item.condition_id = 1
       @item.valid?
       expect(@item.errors.full_messages).to include("Condition can't be blank")
     end
 
-    it "deliveryが未選択では出品できない" do
-      @item.delivery_id = ''
+    it "配送料の負担に「---」が選択されている場合は出品できない" do
+      @item.delivery_id = 1
       @item.valid?
       expect(@item.errors.full_messages).to include("Delivery can't be blank")
     end
 
-    it "Prefectureが未選択では出品できない" do
-      @item.prefecture_id = ''
+    it "発送元の地域に「---」が選択されている場合は出品できないい" do
+      @item.prefecture_id = 1
       @item.valid?
       expect(@item.errors.full_messages).to include("Prefecture can't be blank")
     end
 
-    it "shipment_daysが未選択では出品できない" do
-      @item.shipment_days_id = ''
+    it "発送までの日数に「---」が選択されている場合は出品できない" do
+      @item.shipment_days_id = 1
       @item.valid?
       expect(@item.errors.full_messages).to include("Shipment days can't be blank")
     end
 
-    it "priceが未選択では出品できない" do
+    it "priceが未入力では出品できない" do
       @item.price = ''
       @item.valid?
       expect(@item.errors.full_messages).to include("Price can't be blank")
