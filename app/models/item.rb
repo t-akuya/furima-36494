@@ -12,8 +12,7 @@ class Item < ApplicationRecord
   with_options presence: true do
     validates :image
     validates :name, length: {maximum: 40}
-    validates :price, numericality: { only_integer: true, greater_than: 299,less_than: 10000000}, 
-                      format:       { with: /\A[0-9]+\z/ }
+    validates :price, numericality: { only_integer: true, greater_than: 299,less_than: 10000000}
     validates :text, length: {maximum: 1000}
   end
 

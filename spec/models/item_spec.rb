@@ -80,22 +80,22 @@ describe '商品出品機能' do
       expect(@item.errors.full_messages).to include("Price can't be blank")
     end
 
-    it "priceが¥300以下では出品できない" do
+    it "priceが¥299以下では出品できない" do
       @item.price = 299
       @item.valid?
       expect(@item.errors.full_messages).to include("Price must be greater than 299")
     end
 
-    it "priceが¥9,999,999以上では出品できない" do
+    it "priceが¥10,000,000以上では出品できない" do
       @item.price = 10000000
       @item.valid?
       expect(@item.errors.full_messages).to include("Price must be less than 10000000")
     end
 
     it "priceの数値が全角では出品できない" do
-      @item.price = 300
+      @item.price = "３００"
       @item.valid?
-      expect(@item.errors.full_messages).to include()
+      expect(@item.errors.full_messages).to include("Price is not a number")
     end
 
   end 
