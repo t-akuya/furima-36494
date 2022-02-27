@@ -7,7 +7,7 @@ class Item < ApplicationRecord
   belongs_to :delivery
   belongs_to :prefecture
   belongs_to :shipment_days
-  belongs_to :user, optional: true
+  belongs_to :user
 
   with_options presence: true do
     validates :image
