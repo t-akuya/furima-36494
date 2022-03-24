@@ -60,7 +60,7 @@ end
   end
 
   def sold_out
-    if @item.user.id == current_user.id && @item.order.present?
+    if @item.order.present?
       redirect_to root_path
     end
   end
