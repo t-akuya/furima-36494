@@ -9,5 +9,9 @@ FactoryBot.define do
     prefecture_id       {Faker::Number.between(from: 2, to: 48)}
     shipment_days_id    {Faker::Number.between(from: 2, to: 4)}
     price               {Faker::Number.between(from: 300, to: 9999999)}
+
+    after(:build) do |message|
+      message.image.attach(io: File.open('app/assets/images/comment.png'), filename: 'comment.png')
+    end
   end
 end
